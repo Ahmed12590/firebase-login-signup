@@ -1,7 +1,7 @@
 // firebase-config.js
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyCEV4Nlpu7Hr-BxKyNHMl0r8SCYaVcQW1o",
+  apiKey: "your-api-key",
   authDomain: "ahmed-backend-7c222.firebaseapp.com",
   projectId: "ahmed-backend-7c222",
   storageBucket: "ahmed-backend-7c222.firebasestorage.app",
