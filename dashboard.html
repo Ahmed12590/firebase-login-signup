@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - Eleven Coders CRM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    button {
+      background: #ff4757;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to your Dashboard 🚀</h1>
+  <h3 id="userEmail"></h3>
+  <button id="logoutBtn">Logout</button>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
+
+    // Same Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyCEV4Nlpu7Hr-BxKyNHMl0r8SCYaVcQW1o",
+      authDomain: "ahmed-backend-7c222.firebaseapp.com",
+      projectId: "ahmed-backend-7c222",
+      storageBucket: "ahmed-backend-7c222.firebasestorage.app",
+      messagingSenderId: "716742749301",
+      appId: "1:716742749301:web:2e9557caa4902984c11c3c",
+      measurementId: "G-WCBF37XTH5"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // 🧩 Check if user is logged in
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        document.getElementById("userEmail").textContent = "Logged in as: " + user.email;
+      } else {
+        // If not logged in → redirect to login page
+        window.location.href = "index.html";
+      }
+    });
+
+    // 🧩 Logout button
+    document.getElementById("logoutBtn").addEventListener("click", async () => {
+      await signOut(auth);
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
