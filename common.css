@@ -1,0 +1,105 @@
+
+:root {
+  /* Colors */
+  --primary-color: #0072ff;
+  --secondary-color: #00c6ff;
+  --accent-color: #00ffd1;
+  --background-color: #0f2027;
+  --card-bg: rgba(255, 255, 255, 0.08);
+  --text-color: #ffffff;
+  --muted-text: #cccccc;
+  --border-color: rgba(255, 255, 255, 0.15);
+
+  /* Shadows */
+  --shadow-soft: 0 8px 25px rgba(0, 0, 0, 0.4);
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 20px;
+
+  /* Fonts */
+  --font-primary: "Poppins", sans-serif;
+}
+
+
+
+/* Option 1: Google Font (Simple Way) */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/* Option 2: Custom Font (If you upload your own) */
+/*
+@font-face {
+  font-family: 'HausofSwim-Gopher';
+  src: url('/fonts/Gopher-Medium.woff2') format('woff2'),
+       url('/fonts/Gopher-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+*/
+
+/* ⚙️ ===== Global Styles ===== */
+* {
+  box-sizing: border-box;
+  font-family: var(--font-primary);
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(135deg, var(--background-color), #203a43, #2c5364);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+/* 🧱 Card Style (for dashboard/login reuse) */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(15px);
+  padding: 40px;
+}
+
+/* 🔘 Buttons */
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+/* ✅ Specific Button Colors */
+.btn-primary {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.btn-secondary {
+  background: var(--secondary-color);
+  color: #fff;
+}
+
+.btn-white {
+  background: #fff;
+  color: #333;
+}
+
+/* 🧾 Text Utility */
+.text-muted {
+  color: var(--muted-text);
+  font-size: 14px;
+}
+.text-center {
+  text-align: center;
+}
